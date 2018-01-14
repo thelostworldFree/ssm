@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.how2java.mapper.CategoryMapper">
+	    <insert id="add" parameterType="Category" >
+	        insert into task_two (name,words,types,exist) values (#{name},#{words},#{types},#{exist})    
+	    </insert>
+	    
+	    <delete id="delete" parameterType="Category" >
+	        delete from task_two where t_id= #{t_id}   
+	    </delete>
+	    
+	    <select id="get" parameterType="_int" resultType="Category">
+	        select * from   task_two  where t_id= #{t_id}    
+	    </select>
+
+	    <update id="update" parameterType="Category" >
+	         update task_two set name=#{name},words=#{words},types=#{types},exist=#{exist} where t_id=#{t_id}  
+	    </update>
+	    <select id="list" resultType="Category">
+	        select * from   task_two order by t_id desc
+	        <if test="start!=null and count!=null">
+                    limit #{start},#{count}
+            </if>
+            
+	    </select>
+	    <select id="total" resultType="int">
+	        select count(*) from   task_two      
+	    </select>	    	    
+	</mapper>
+
