@@ -16,7 +16,7 @@
 	
 
    <context:annotation-config />
-	<context:component-scan base-package="com.how2java.service" />
+	<context:component-scan base-package="com.fuwei.service" />
 
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->
@@ -67,13 +67,13 @@
 	
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="typeAliasesPackage" value="com.how2java.pojo" />
+		<property name="typeAliasesPackage" value="com.fuwei.pojo" />
 		<property name="dataSource" ref="dataSource"/>
-		<property name="mapperLocations" value="classpath:com/how2java/mapper/*.xml"/>
+		<property name="mapperLocations" value="classpath:com/fuwei/mapper/*.xml"/>
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.how2java.mapper"/>
+		<property name="basePackage" value="com.fuwei.mapper"/>
 	</bean>
 	
 
