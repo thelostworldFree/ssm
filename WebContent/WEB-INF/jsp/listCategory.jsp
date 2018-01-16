@@ -21,8 +21,8 @@
 	            <td>${c.words}</td>
 	            <td>${c.types}</td>
 	            <td>${c.exist}</td>
-	            <td><a href="editCategory?t_id=${c.t_id}">编辑</a></td>
-	            <td><a href="deleteCategory?t_id=${c.t_id}">删除</a></td>
+	            <td><a href="editCategory?t_id=${c.t_id}" >编辑</a></td>
+	            <td><form method="delete" action="deleteCategory"><a href="deleteCategory?t_id=${c.t_id}" type="submit">删除</a></form></td>
 	        </tr>
 	    </c:forEach>
 	</table>
@@ -36,7 +36,7 @@
 	
 	<div style="text-align:center;margin-top:40px">
 		
-		<form method="get" action="addCategory">
+		<form method="post" action="addCategory">
 			名字: <input name="name" value="" type="text"> <br><br>
 			描述: <input name="words" value="" type="text"> <br><br>
 			类型: <input name="types" value="" type="text"> <br><br>

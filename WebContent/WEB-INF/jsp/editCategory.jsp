@@ -8,7 +8,7 @@
 	
 	<div style="text-align:center;margin-top:40px">
 		
-		<form method="get" action="updateCategory">
+		<form method="put" action="putCategory">
 			名字: <input name="name" value="${c.name}" type="text"> <br><br>
 			描述: <input name="words" value="${c.words}" type="text"> <br><br>
 			类型: <input name="types" value="${c.types}" type="text"> <br><br>

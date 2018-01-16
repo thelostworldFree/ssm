@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.how2java.pojo.Category;
@@ -19,13 +20,13 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 
-	@RequestMapping("listCategory")
+	@RequestMapping(value = "listCategory", method = RequestMethod.GET )
 	public ModelAndView listCategory(Page page){
 	
 		ModelAndView mav = new ModelAndView();
 		List<Category> cs= categoryService.list(page);
 		int total = categoryService.total();
-		
+
 		page.caculateLast(total);
 		
 		// 放入转发参数
@@ -35,13 +36,13 @@ public class CategoryController {
 		return mav;
 	}
 	
-	@RequestMapping("addCategory")
+	@RequestMapping(value = "addCategory", method = RequestMethod.POST)
 	public ModelAndView addCategory(Category category){
 		categoryService.add(category);
 		ModelAndView mav = new ModelAndView("redirect:/listCategory");
 	    return mav;
 	}	
-	@RequestMapping("deleteCategory")
+	@RequestMapping(value = "deleteCategory")
 	public ModelAndView deleteCategory(Category category){
 		categoryService.delete(category);
 		ModelAndView mav = new ModelAndView("redirect:/listCategory");
@@ -54,7 +55,7 @@ public class CategoryController {
 		mav.addObject("c", c);
 		return mav;
 	}	
-	@RequestMapping("updateCategory")
+	@RequestMapping("putCategory")
 	public ModelAndView updateCategory(Category category){
 		categoryService.update(category);
 		System.out.println(category+"-------");
