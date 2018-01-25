@@ -65,7 +65,6 @@
 <!--       </property>      -->
 <!--     </bean>	 -->
 	
-	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="typeAliasesPackage" value="com.fuwei.pojo" />
 		<property name="dataSource" ref="dataSource"/>
@@ -75,7 +74,9 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.fuwei.mapper"/>
 	</bean>
+	 
+	<context:component-scan base-package="com.fuwei.aop"/>
+    <context:component-scan base-package="com.fuwei.service.impl"/>
+    <aop:aspectj-autoproxy/>
 	
-
-
 </beans>
