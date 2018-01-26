@@ -3,13 +3,14 @@ package com.fuwei.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.fuwei.mapper.CategoryMapper;
 import com.fuwei.pojo.Category;
 import com.fuwei.service.CategoryService;
 import com.fuwei.util.Page;
-
+@Component("f")
 @Service
 public class CategoryServiceImpl  implements CategoryService{
 	@Autowired

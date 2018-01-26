@@ -10,19 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fuwei.aop.ControllerAspect;
 import com.fuwei.pojo.Category;
 import com.fuwei.service.CategoryService;
 import com.fuwei.util.Page;
 
 // 告诉spring mvc这是一个控制器类
-@Component("s")
+@Component("a")
 @Controller
 @RequestMapping("")
 public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
-	
+
 
 	@RequestMapping(value = "listCategory", method = RequestMethod.GET )
 	public ModelAndView listCategory(Page page){
